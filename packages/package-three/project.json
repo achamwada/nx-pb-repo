@@ -3,6 +3,12 @@
   "root": "packages/package-three",
   "sourceRoot": "packages/package-three/src",
   "projectType": "library",
+  "publish": {
+  "executor": "nx:run-commands",
+  "options": {
+    "command": "npm publish dist/packages/package-three --registry http://localhost:4873"
+  }
+},
   "tags": [],
   "targets": {
     "build": {

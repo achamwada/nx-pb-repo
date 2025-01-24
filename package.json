@@ -7,7 +7,10 @@
     "release": "standard-version",
     "preversion": "npx nx run-many -t build",
     "version": "standard-version",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "verdaccio": "npx verdaccio --config ./.verdaccio/config.yml",
+    "publish:all": "npx nx run-many --target=build --all && npx nx run-many --target=publish --all && npx nx run-many --target=tag --all",
+    "version:all": "npx nx run-many --target=version --all"
   },
   "private": true,
   "devDependencies": {

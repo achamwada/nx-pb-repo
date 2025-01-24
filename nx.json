@@ -20,5 +20,14 @@
       }
     },
     "@jscutlery/semver"
-  ]
+  ],
+  "targets": {
+  "serve": {
+    "executor": "nx:run-commands",
+    "options": {
+      "command": "verdaccio --config ./tools/verdaccio/config.yaml"
+    }
+  }
+}
+
 }

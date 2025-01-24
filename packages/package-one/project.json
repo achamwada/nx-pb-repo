@@ -3,6 +3,12 @@
     "root": "packages/package-one",
     "sourceRoot": "packages/package-one/src",
     "projectType": "library",
+    "publish": {
+  "executor": "nx:run-commands",
+  "options": {
+    "command": "npm publish dist/packages/package-one --registry http://localhost:4873"
+  }
+},
     "tags": [],
     "targets": {
       "build": {
