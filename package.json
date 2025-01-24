@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build:all": "nx run-many --target=build --all --parallel",
     "release": "standard-version",
     "preversion": "npx nx run-many -t build",
     "version": "standard-version",

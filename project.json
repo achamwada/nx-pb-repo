@@ -1,0 +1,43 @@
+{
+    "name": "@nx-pb-repo/source",
+    "root": ".",
+    "sourceRoot": ".",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "options": {
+          "outputPath": "dist",
+          "main": "index.ts",
+          "tsConfig": "tsconfig.json",
+          "assets": [
+            "package.json",
+            "README.md"
+          ]
+        }
+      },
+      "lint": {
+        "executor": "@nx/linter:eslint",
+        "options": {
+          "lintFilePatterns": ["*.ts", "packages/**/*.ts"]
+        }
+      },
+      "test": {
+        "executor": "@nx/jest:jest",
+        "outputs": ["coverage"],
+        "options": {
+          "jestConfig": "jest.config.ts",
+          "passWithNoTests": true
+        }
+      },
+      "version": {
+        "executor": "@jscutlery/semver:version",
+        "options": {
+          "push": true,
+          "syncVersions": false
+        }
+      }
+    }
+  }
+  

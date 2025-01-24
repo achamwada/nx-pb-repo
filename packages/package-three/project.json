@@ -1,13 +1,33 @@
 {
-    "name": "package-three",
-    "targets": {
-      "version": {
-        "executor": "@jscutlery/semver:version",
-        "options": {
-          "push": true,
-          "syncVersions": false
-        }
+  "name": "@nx-pb-repo/package-three",
+  "root": "packages/package-three",
+  "sourceRoot": "packages/package-three/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/package-three",
+        "main": "packages/package-three/src/index.ts",
+        "tsConfig": "packages/package-three/tsconfig.lib.json",
+        "assets": ["packages/package-three/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/packages/package-three"],
+      "options": {
+        "jestConfig": "packages/package-three/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/package-three/**/*.ts"]
       }
     }
   }
-  
+}

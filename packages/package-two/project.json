@@ -1,13 +1,33 @@
 {
-    "name": "package-two",
-    "targets": {
-      "version": {
-        "executor": "@jscutlery/semver:version",
-        "options": {
-          "push": true,
-          "syncVersions": false
-        }
+  "name": "@nx-pb-repo/package-two",
+  "root": "packages/package-two",
+  "sourceRoot": "packages/package-two/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/package-two",
+        "main": "packages/package-two/src/index.ts",
+        "tsConfig": "packages/package-two/tsconfig.lib.json",
+        "assets": ["packages/package-two/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/packages/package-two"],
+      "options": {
+        "jestConfig": "packages/package-two/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/package-two/**/*.ts"]
       }
     }
   }
-  
+}
