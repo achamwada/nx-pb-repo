@@ -1,0 +1,15 @@
+{
+  "executors": {
+  "tag": {
+    "implementation": "./tools/executors/tag-package",
+    "schema": {
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version to tag the package with"
+          }
+        }
+      }
+    }
+  }
+}

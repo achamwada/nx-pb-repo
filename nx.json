@@ -18,6 +18,7 @@
           "configName": "tsconfig.lib.json"
         }
       }
-    }
+    },
+    "@jscutlery/semver"
   ]
 }
